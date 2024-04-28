@@ -3,13 +3,15 @@ session_start();
 
 // Check if user is logged in
 if(!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Check if user's role is not "student", redirect to login page
+if($_SESSION['role_id'] !== '2') {
     header("Location: index.php");
     exit();
-
-    
 }
-require_once "include\connect\dbcon.php";
-
 
 // Get user information from session
 $fname = $_SESSION['fname'];
@@ -24,7 +26,7 @@ $lname = $_SESSION['lname'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>

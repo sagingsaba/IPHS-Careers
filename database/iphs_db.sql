@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 06:31 PM
+-- Generation Time: Apr 28, 2024 at 09:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,17 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `audit_trail_tb`
+-- Table structure for table `log_tb`
 --
 
-CREATE TABLE `audit_trail_tb` (
+CREATE TABLE `log_tb` (
   `audit_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) DEFAULT NULL,
   `fname` varchar(50) DEFAULT NULL,
   `lname` varchar(50) DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL
+  `role` varchar(50) DEFAULT NULL,
+  `action` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `log_tb`
+--
+
+INSERT INTO `log_tb` (`audit_id`, `timestamp`, `user_id`, `fname`, `lname`, `role`, `action`) VALUES
+(19, '2024-04-28 13:39:24', 8, NULL, NULL, NULL, 'logged in'),
+(20, '2024-04-28 13:39:44', 8, NULL, NULL, NULL, 'logged in');
 
 -- --------------------------------------------------------
 
@@ -74,8 +83,7 @@ INSERT INTO `strand_tb` (`strand_id`, `strand_name`) VALUES
 (1, 'stem'),
 (2, 'gas'),
 (3, 'hums'),
-(4, 'abm'),
-(5, 'n/a');
+(4, 'abm');
 
 -- --------------------------------------------------------
 
@@ -99,17 +107,16 @@ CREATE TABLE `user_tb` (
 --
 
 INSERT INTO `user_tb` (`user_id`, `fname`, `lname`, `email`, `password`, `dob`, `role_id`, `strand_id`) VALUES
-(1, 'Neil', 'Alfred', 'student@gmail.com', '123', '2000-05-10', 2, 1),
-(2, 'Jun', 'Cadenas', 'admin@gmail.com', '123', '1998-08-15', 1, 5);
+(8, 'Neil', 'Alfred', 'a@gmail.com', '$2y$10$l8sfMvWPJj0tCIW49FOb2uADMKIO09SqnTovgvOITblzX/u5ScTTe', '2024-04-18', 2, 3);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `audit_trail_tb`
+-- Indexes for table `log_tb`
 --
-ALTER TABLE `audit_trail_tb`
+ALTER TABLE `log_tb`
   ADD PRIMARY KEY (`audit_id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -138,10 +145,10 @@ ALTER TABLE `user_tb`
 --
 
 --
--- AUTO_INCREMENT for table `audit_trail_tb`
+-- AUTO_INCREMENT for table `log_tb`
 --
-ALTER TABLE `audit_trail_tb`
-  MODIFY `audit_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `log_tb`
+  MODIFY `audit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `strand_tb`
@@ -153,17 +160,17 @@ ALTER TABLE `strand_tb`
 -- AUTO_INCREMENT for table `user_tb`
 --
 ALTER TABLE `user_tb`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `audit_trail_tb`
+-- Constraints for table `log_tb`
 --
-ALTER TABLE `audit_trail_tb`
-  ADD CONSTRAINT `audit_trail_tb_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_tb` (`user_id`);
+ALTER TABLE `log_tb`
+  ADD CONSTRAINT `log_tb_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_tb` (`user_id`);
 
 --
 -- Constraints for table `user_tb`
