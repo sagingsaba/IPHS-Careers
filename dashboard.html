@@ -5,31 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="include\image\logo.png">
     <link rel="stylesheet" href="include\styles\globalstyles.css">
+    <link rel="stylesheet" href="include\styles\animation.css">
     <script src=".include\js\globaljs.js"></script>
     <title>Dashboard</title>
+    
 </head> 
 <body>
 
-<nav><img src="" alt="IPHS_logo" class="IPHS_logo">
-    
+<nav><img src="" alt="IPHS_logo" class="IPHS_logo"><a>
+    <div class="dropdown">
+        <button class="menu-dropbtn">Menu</button>
 
-    
-    <ul class="menu">
+        <div class="menu-content">
+            <button id="profile_btn" class="button">Profile</button>
 
-        <button id="profile_btn" class="button">Profile</button>
+            <button id="SnM_btn" class="button">Skills & Modules</button>
+            
+            <button id="courseexplore_btn" class="button">Course Explore</button>
+            
+            <button id="scholarship_btn" class="button">Scholarship</button>
+            
+            <button id="feedback_btn" class="button">Feedback</button>
+            
+            <button id="logout_btn" class="button">Log Out</button>
+        </div>
 
-        <button id="SnM_btn" class="button">Skills & Modules</button>
-        
-        <button id="courseexplore_btn" class="button">Course Explore</button>
-        
-        <button id="scholarship_btn" class="button">Scholarship</button>
-        
-        <button id="feedback_btn" class="button">Feedback</button>
-        
-        <button id="logout_btn" class="button">Log Out</button>
-        
-    </ul>
+      </div>
+
 </nav>
+
+<div class="info-panel">
+    <label>date</label>
+    <img src="" class="bg4course3d_phslogo"></img>
+    <img src="" class="course_3d"></img>
+    <div id="name">Welcome Back, Neil Alfred</div>
+</div>
+
+<div class="uni-panel">
+    <label>Top Universities around Pampanga</label>
+    <ul>
+    <label>example</label>
+    <label>example</label>
+    </ul>
+<div>
+
 
 </body>
 </html>
