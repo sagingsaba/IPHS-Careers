@@ -4,9 +4,11 @@
 read: updates.txt
 
 OTHER NOTES:
--magulo
--testing lang sa connect
--wala pang andmin
--sign_up.php is for student only(id = 2)
--pwede ulitin database, inaral ko lang para kapag CCS confident na ako sa mga backend na madadamay
--gets ko na kaya magulo code mo sa backend HAHA
+- di naka follow sa figma
+- landing pages and log in should be in a same page , use carosel
+- choosing strand should be a selection menu not dropdown, in short different page
+- testing lang sa connect
+- wala pang andmin
+- sign_up.php is for student only(id = 2)
+- pwede ulitin database, inaral ko lang para kapag CCS confident na ako sa mga backend na madadamay
+- gets ko na kaya magulo code mo sa backend HAHA

@@ -77,6 +77,11 @@ try {
 
     <div>
         <h2>Sign Up</h2>
+
+        <div><label>have account? log in here</label>
+        <a href="index.php">log in</a>
+
+    </div>
         <?php
         if(!empty($message)){
             echo "<p>$message</p>";
